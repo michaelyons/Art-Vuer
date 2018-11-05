@@ -4,7 +4,8 @@
     <div id="nav">
       <router-link to="/">Welcome</router-link> |
       <router-link to="/american-artists">American Artists</router-link> |
-      <router-link to="/dutch-artists">Dutch Artists</router-link>
+      <router-link to="/dutch-artists">Dutch Artists</router-link> |
+      <router-link to="/spanish-artists">Spanish Artists</router-link>
     </div>
     <router-view/>
   </div>
