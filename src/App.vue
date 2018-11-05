@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1>Vue Art</h1>
     <div id="nav">
       <router-link to="/">Welcome</router-link> |
       <router-link to="/american-artists">American Artists</router-link> |
