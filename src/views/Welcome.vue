@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="welcome">
     <img alt="Vue logo" src="../assets/logo.png">
     <Welcome msg="Welcome to Vue Artists App"/>
   </div>
@@ -9,7 +9,7 @@
 import Welcome from '@/components/Welcome.vue';
 
 export default {
-  name: 'home',
+  name: 'welcome',
   components: {
     Welcome
   }

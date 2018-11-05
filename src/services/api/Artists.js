@@ -1,8 +1,10 @@
-import Vue from 'vue';
-import { key } from '../../variables';
+import axios from "axios";
+import { key } from "../../variables";
 
 export default {
   getArtists() {
-    return Vue.http.get(`/api.harvardartmuseums.org/person?apikey=${key}`);
+    return axios.get(`/person?size=100&apikey=${key}`).then(response => {
+      return response.data.records;
+    });
   }
 };
