@@ -16,11 +16,13 @@ export default new Router({
     {
       path: "/american-artists",
       name: "american-artists",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "artists" */ "./views/AmericanArtists.vue")
+
+      component: () => import("./views/AmericanArtists.vue")
+    },
+    {
+      path: "/dutch-artists",
+      name: "dutch-artists",
+      component: () => import("./views/DutchArtists.vue")
     }
   ]
 });

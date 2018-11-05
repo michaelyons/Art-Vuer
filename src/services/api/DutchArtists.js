@@ -2,9 +2,9 @@ import axios from "axios";
 import { key } from "../../variables";
 
 export default {
-  getArtists() {
+  getDutchArtists() {
     return axios
-      .get(`/person?q=culture:American&size=100&apikey=${key}`)
+      .get(`/person?q=culture:Dutch&size=100&apikey=${key}`)
       .then(response => {
         return response.data.records;
       });

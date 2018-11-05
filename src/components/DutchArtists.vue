@@ -1,36 +1,36 @@
 <template>
   <div class="hello">
     <h1>{{msg}}</h1>
-    <article v-for="artist in americanArtists" :key="artist.id">
-      <h2>{{artist.name}}</h2>
-      <p>{{artist.lifetime}}</p>
-      <p>{{artist.artwork}}</p>
+    <article v-for="dutch in dutchArtists" :key="dutch.id">
+      <h2>{{dutch.name}}</h2>
+      <p>{{dutch.lifetime}}</p>
+      <p>{{dutch.artwork}}</p>
       <button>View Artwork</button>
     </article>
   </div>
 </template>
 
 <script>
-import GetAmericanArtistsApi from '@/services/api/AmericanArtists';
+import GetDutchArtistsApi from '@/services/api/DutchArtists';
 export default {
-  name: 'AmericanArtists',
+  name: 'DutchArtists',
 
   data() {
     return {
-      americanArtists: []
+      dutchArtists: []
     };
   },
   created() {
-    GetAmericanArtistsApi.getAmericanArtists()
-      .then(artists => {
-        this.americanArtists = artists;
+    GetDutchArtistsApi.getDutchArtists()
+      .then(dutchArtists => {
+        this.dutchArtists = dutchArtists;
       })
       .catch(error => console.log(error));
   },
   mounted() {
-    GetAmericanArtistsApi.getAmericanArtists()
-      .then(artists => {
-        const artist = artists.map(artist => {
+    GetDutchArtistsApi.getDutchArtists()
+      .then(dutchArtists => {
+        const dutch = dutchArtists.map(artist => {
           return {
             name: artist.displayname,
             lifetime: artist.displaydate,
@@ -39,7 +39,7 @@ export default {
             id: artist.id
           };
         });
-        this.americanArtists = artist;
+        this.dutchArtists = dutch;
       })
       .catch(error => console.log(error));
   },
