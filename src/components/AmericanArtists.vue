@@ -3,14 +3,10 @@
     <h1>{{msg}}</h1>
     <article v-for="artist in artists" :key="artist.id">
       <h2>{{artist.name}}</h2>
+      <p>{{artist.lifetime}}</p>
+      <p>{{artist.artwork}}</p>
+      <button>View Artwork</button>
     </article>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
   </div>
 </template>
 
@@ -37,10 +33,14 @@ export default {
         const artist = artists.map(artist => {
           return {
             name: artist.displayname,
+            lifetime: artist.displaydate,
+            artwork: artist.objectcount,
+            website: artist.url,
             id: artist.id
           };
         });
         this.artists = artist;
+        console.log(artist);
       })
       .catch(error => console.log(error));
   },
