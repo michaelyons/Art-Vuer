@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h1>{{msg}}</h1>
+  <h1>{{msg}}</h1>
   <div class="hello">
     <div class="pictures">
       <div v-for='art in uniqueArt' :key="art.id" v-bind:class="[uniqueArt]" v-show='toggle' class="all-artwork-container">
@@ -42,7 +42,6 @@ export default {
       GetSpecificAmericanArtist.getSpecificArtist(targetId)
         .then(data => {
           const uniqueArtwork = data.records.map(record => {
-            console.log(record);
             const name = record.people[0].name;
             return {
               artType: record.division,
