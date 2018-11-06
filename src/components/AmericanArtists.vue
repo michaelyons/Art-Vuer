@@ -1,22 +1,17 @@
 <template>
   <div class="hello">
     <h1>{{msg}}</h1>
-    <article v-for="artist in americanArtists" :key="artist.id">
+    <article v-for="artist in americanArtists" :key="artist.id" v-on:click="toggle = true">
       <h2>{{artist.name}}</h2>
-      <p>{{artist.lifetime}}</p>
-      <p>{{artist.artwork}}</p>
-      <button :id="artist.id" v-on:click="select($event)">View Artwork</button>
+      <p>Number of Works: {{artist.artwork}}</p>
+      <button :id="artist.id" v-on:click="select($event), toggle = !toggle">Click to view/remove Artwork</button>
     </article>
-      <section v-for='art in uniqueArt' :key="art.id" v-bind:class="[uniqueArt]">
-        <button>X</button>
+      <div v-for='art in uniqueArt' :key="art.id" v-bind:class="[uniqueArt]" v-show='toggle'>
         <h1>{{art.title}}</h1>
-        <p>{{art.created}}</p>
         <p>{{art.technique}}</p>
         <p>{{art.period}}</p>
-        <img :src="art.image" alt="broken">
-      </section>
-    <div>
-    </div>
+        <img :src="art.image" alt="no images found">
+      </div>
   </div>
 </template>
 
@@ -30,6 +25,7 @@ export default {
   data() {
     return {
       americanArtists: [],
+      toggle: true,
       uniqueArt: []
     };
   },
@@ -39,7 +35,6 @@ export default {
       GetSpecificAmericanArtist.getSpecificArtist(targetId)
         .then(data => {
           const uniqueArtwork = data.records.map(record => {
-            console.log(record);
             return {
               artType: record.division,
               technique: record.technique,
@@ -49,7 +44,6 @@ export default {
               created: record.dateend
             };
           });
-          console.log(uniqueArtwork);
           this.uniqueArt = uniqueArtwork;
         })
         .catch(error => console.log(error));
