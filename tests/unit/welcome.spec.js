@@ -9,4 +9,8 @@ describe("Welcome.vue", () => {
     });
     expect(wrapper.text()).toMatch(msg);
   });
+  it("should match the snapshot", () => {
+    const wrapper = shallowMount(Welcome);
+    expect(wrapper).toMatchSnapshot();
+  });
 });

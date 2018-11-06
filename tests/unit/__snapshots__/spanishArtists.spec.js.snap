@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SpanishArtists.vue matches snapshot 1`] = `
+<div>
+  <div class="hello">
+    <div class="art"></div>
+    <div class="pictures"></div>
+  </div>
+</div>
+`;
