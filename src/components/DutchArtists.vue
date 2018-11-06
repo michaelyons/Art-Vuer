@@ -1,31 +1,58 @@
 <template>
+  <div>
   <div class="hello">
-    <h1>{{msg}}</h1>
-    <article v-for="dutch in dutchArtists" :key="dutch.id">
+     <div class="art">
+    <article v-for="dutch in dutchArtists" :key="dutch.id" class="artist-container">
       <h2>{{dutch.name}}</h2>
-      <p>{{dutch.lifetime}}</p>
-      <p>{{dutch.artwork}}</p>
-      <button :id="dutch.id" v-on:click="select($event)">View Artwork</button>
+      <p>Number of Works: {{dutch.artwork}}</p>
+      <button class="view-btn" :id="dutch.id" v-on:click="select($event)">View Artwork</button>
     </article>
+  </div>
+     <div class="pictures">
+      <div v-for='art in uniqueArt' :key="art.id" v-bind:class="[uniqueArt]" v-show='toggle' class="all-artwork-container">
+        <h2>{{art.name}}</h2>
+        <p class="art-title">{{art.title}}</p>
+        <p>{{art.technique}}</p>
+        <p>{{art.period}}</p>
+        <img :src="art.image" alt="no images found" class="image">
+      </div>
+      </div>
+   </div>
   </div>
 </template>
 
 <script>
 import GetDutchArtistsApi from '@/services/api/DutchArtists';
-import GetSpecificDanishArtist from '@/services/api/SpecificArtist';
+import GetSpecificDutchArtist from '@/services/api/SpecificArtist';
 export default {
   name: 'DutchArtists',
   data() {
     return {
-      dutchArtists: []
+      dutchArtists: [],
+      toggle: true,
+      uniqueArt: []
     };
   },
   methods: {
-    select: async event => {
+    select: function(event) {
       const targetId = event.target.id;
-      const data = await GetSpecificDanishArtist.getSpecificArtist(targetId);
-      console.log(data);
-      return data.records;
+      GetSpecificDutchArtist.getSpecificArtist(targetId)
+        .then(data => {
+          const uniqueArtwork = data.records.map(record => {
+            const name = record.people[0].name;
+            return {
+              artType: record.division,
+              technique: record.technique,
+              title: record.title,
+              period: record.century,
+              image: record.primaryimageurl,
+              created: record.dateend,
+              name: name
+            };
+          });
+          this.uniqueArt = uniqueArtwork;
+        })
+        .catch(error => console.log(error));
     }
   },
   created() {
@@ -50,26 +77,70 @@ export default {
         this.dutchArtists = dutch;
       })
       .catch(error => console.log(error));
-  },
-  props: {
-    msg: String
   }
 };
 </script>
 
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+h1 {
+  margin-top: 0.3rem;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+h2 {
+  margin-bottom: 0;
+  margin-top: 0.4rem;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+.all-artwork-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 1rem;
+  margin-left: 0.5rem;
 }
-a {
-  color: #42b983;
+.artist-container {
+  display: flex;
+  flex-direction: column;
+  height: 9rem;
+  margin-right: 0;
+  margin-bottom: 1rem;
+  border-bottom: solid slategray 5px;
+}
+p {
+  margin-bottom: 0;
+  margin-top: 0.4rem;
+}
+.art-title {
+  font-weight: bolder;
+  margin-bottom: 0.5rem;
+}
+.pictures {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.view-btn {
+  width: 6rem;
+  margin: auto;
+}
+.art {
+  overflow-x: scroll;
+  height: 17rem;
+  width: 20%;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-style: solid;
+  border-width: 6px;
+  border-color: slategray;
+  background-color: mintcream;
+  border-radius: 20px;
+  position: sticky;
+}
+.image {
+  width: 450px;
+  height: 450px;
+  margin-top: 2rem;
+  margin: auto;
+  padding-bottom: 8rem;
 }
 </style>

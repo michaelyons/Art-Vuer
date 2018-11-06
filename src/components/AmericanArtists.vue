@@ -1,17 +1,23 @@
 <template>
+<div>
   <div class="hello">
-    <h1>{{msg}}</h1>
-    <article v-for="artist in americanArtists" :key="artist.id" v-on:click="toggle = true">
+    <div class="art">
+    <article v-for="artist in americanArtists" :key="artist.id" v-on:click="toggle = true" class="artist-container">
       <h2>{{artist.name}}</h2>
       <p>Number of Works: {{artist.artwork}}</p>
-      <button :id="artist.id" v-on:click="select($event), toggle = !toggle">Click to view/remove Artwork</button>
-    </article>
-      <div v-for='art in uniqueArt' :key="art.id" v-bind:class="[uniqueArt]" v-show='toggle'>
-        <h1>{{art.title}}</h1>
+      <button class="view-btn" :id="artist.id" v-on:click="select($event), toggle = !toggle">View Artwork</button>
+    </article> 
+    </div>
+    <div class="pictures">
+      <div v-for='art in uniqueArt' :key="art.id" v-bind:class="[uniqueArt]" v-show='toggle' class="all-artwork-container">
+        <h2>{{art.name}}</h2>
+        <p class="art-title">{{art.title}}</p>
         <p>{{art.technique}}</p>
         <p>{{art.period}}</p>
-        <img :src="art.image" alt="no images found">
+        <img :src="art.image" alt="no images found" class="image">
       </div>
+      </div>
+  </div>
   </div>
 </template>
 
@@ -35,13 +41,15 @@ export default {
       GetSpecificAmericanArtist.getSpecificArtist(targetId)
         .then(data => {
           const uniqueArtwork = data.records.map(record => {
+            const name = record.people[0].name;
             return {
               artType: record.division,
               technique: record.technique,
               title: record.title,
               period: record.century,
               image: record.primaryimageurl,
-              created: record.dateend
+              created: record.dateend,
+              name: name
             };
           });
           this.uniqueArt = uniqueArtwork;
@@ -71,27 +79,71 @@ export default {
         this.americanArtists = artist;
       })
       .catch(error => console.log(error));
-  },
-  props: {
-    msg: String
   }
 };
 </script>
 
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+h1 {
+  margin-top: 0.3rem;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+h2 {
+  margin-bottom: 0;
+  margin-top: 0.4rem;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+.all-artwork-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 1rem;
+  margin-left: 0.5rem;
 }
-
-a {
-  color: #42b983;
+.artist-container {
+  display: flex;
+  flex-direction: column;
+  height: 9rem;
+  margin-right: 0;
+  margin-bottom: 1rem;
+  border-bottom: solid slategray 5px;
+}
+p {
+  margin-bottom: 0;
+  margin-top: 0.4rem;
+}
+.art-title {
+  font-weight: bolder;
+  margin-bottom: 0.5rem;
+}
+.pictures {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.view-btn {
+  width: 6rem;
+  margin: auto;
+}
+.art {
+  overflow-x: scroll;
+  height: 17rem;
+  width: 20%;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-style: solid;
+  border-width: 6px;
+  border-color: slategray;
+  background-color: mintcream;
+  border-radius: 20px;
+  position: sticky;
+}
+.image {
+  width: 450px;
+  height: 450px;
+  margin-top: 2rem;
+  margin: auto;
+  padding-bottom: 10rem;
 }
 </style>
+

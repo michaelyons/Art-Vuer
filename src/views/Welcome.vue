@@ -1,6 +1,6 @@
 <template>
   <div class="welcome">
-    <img alt="Vue logo" src="../assets/liberty.png">
+    <img alt="Vue logo" src="https://media.giphy.com/media/3ohhwDfcBvBPpD9RZu/giphy.gif">
   </div>
 </template>
 
@@ -14,3 +14,9 @@ export default {
   }
 };
 </script>
+<style scoped>
+img {
+  padding-top: 3rem;
+}
+</style>
+
