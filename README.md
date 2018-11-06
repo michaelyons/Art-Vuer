@@ -1,4 +1,4 @@
-# mod4-final
+# Art-Vuer
 
 ## Project setup
 ```
@@ -29,6 +29,3 @@ npm run lint
 ```
 npm run test:unit
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
