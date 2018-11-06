@@ -19,7 +19,17 @@ export default {
     select: async event => {
       const targetId = event.target.id;
       const data = await GetSpecificAmericanArtist.getSpecificArtist(targetId);
-      return data.records;
+      const artwork = data.records.map(record => {
+        return {
+          artType: record.division,
+          technique: record.technique,
+          title: record.title,
+          period: record.century,
+          image: record.url,
+          created: record.dateend
+        };
+      });
+      return artwork;
     }
   },
   data() {
