@@ -12,13 +12,13 @@
 
 <script>
 import GetAmericanArtistsApi from '@/services/api/AmericanArtists';
-import GetSpecificAmericanArtist from '@/services/api/SpecificAmerican';
+import GetSpecificAmericanArtist from '@/services/api/SpecificArtist';
 export default {
   name: 'AmericanArtists',
   methods: {
     select: async event => {
       const targetId = event.target.id;
-      const data = await GetSpecificAmericanArtist.getAmericanArtist(targetId);
+      const data = await GetSpecificAmericanArtist.getSpecificArtist(targetId);
       return data.records;
     }
   },

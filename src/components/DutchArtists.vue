@@ -5,20 +5,28 @@
       <h2>{{dutch.name}}</h2>
       <p>{{dutch.lifetime}}</p>
       <p>{{dutch.artwork}}</p>
-      <button>View Artwork</button>
+      <button :id="dutch.id" v-on:click="select($event)">View Artwork</button>
     </article>
   </div>
 </template>
 
 <script>
 import GetDutchArtistsApi from '@/services/api/DutchArtists';
+import GetSpecificDanishArtist from '@/services/api/SpecificArtist';
 export default {
   name: 'DutchArtists',
-
   data() {
     return {
       dutchArtists: []
     };
+  },
+  methods: {
+    select: async event => {
+      const targetId = event.target.id;
+      const data = await GetSpecificDanishArtist.getSpecificArtist(targetId);
+      console.log(data);
+      return data.records;
+    }
   },
   created() {
     GetDutchArtistsApi.getDutchArtists()
