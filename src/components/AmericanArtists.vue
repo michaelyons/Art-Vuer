@@ -7,35 +7,53 @@
       <p>{{artist.artwork}}</p>
       <button :id="artist.id" v-on:click="select($event)">View Artwork</button>
     </article>
+      <section v-for='art in uniqueArt' :key="art.id" v-bind:class="[uniqueArt]">
+        <button>X</button>
+        <h1>{{art.title}}</h1>
+        <p>{{art.created}}</p>
+        <p>{{art.technique}}</p>
+        <p>{{art.period}}</p>
+        <img :src="art.image" alt="broken">
+      </section>
+    <div>
+    </div>
   </div>
 </template>
+
+
 
 <script>
 import GetAmericanArtistsApi from '@/services/api/AmericanArtists';
 import GetSpecificAmericanArtist from '@/services/api/SpecificArtist';
 export default {
   name: 'AmericanArtists',
-  methods: {
-    select: async event => {
-      const targetId = event.target.id;
-      const data = await GetSpecificAmericanArtist.getSpecificArtist(targetId);
-      const artwork = data.records.map(record => {
-        return {
-          artType: record.division,
-          technique: record.technique,
-          title: record.title,
-          period: record.century,
-          image: record.url,
-          created: record.dateend
-        };
-      });
-      return artwork;
-    }
-  },
   data() {
     return {
-      americanArtists: []
+      americanArtists: [],
+      uniqueArt: []
     };
+  },
+  methods: {
+    select: function(event) {
+      const targetId = event.target.id;
+      GetSpecificAmericanArtist.getSpecificArtist(targetId)
+        .then(data => {
+          const uniqueArtwork = data.records.map(record => {
+            console.log(record);
+            return {
+              artType: record.division,
+              technique: record.technique,
+              title: record.title,
+              period: record.century,
+              image: record.primaryimageurl,
+              created: record.dateend
+            };
+          });
+          console.log(uniqueArtwork);
+          this.uniqueArt = uniqueArtwork;
+        })
+        .catch(error => console.log(error));
+    }
   },
   created() {
     GetAmericanArtistsApi.getAmericanArtists()
@@ -78,12 +96,7 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-article {
-  border-style: solid;
-  border-color: crimson;
-  border-width: 5px;
-  margin-bottom: 1rem;
-}
+
 a {
   color: #42b983;
 }

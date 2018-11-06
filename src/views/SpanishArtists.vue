@@ -1,6 +1,6 @@
 <template>
   <div class="artists">
-    <SpanishArtists msg="View Spanish Artists"/>
+    <SpanishArtists msg="Spanish Artists"/>
   </div>
 </template>
 
