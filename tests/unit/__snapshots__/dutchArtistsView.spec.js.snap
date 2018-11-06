@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DutchArtists.vue matches snapshot 1`] = `
+<div class="artists">
+  <dutchartists-stub msg="Dutch Artists"></dutchartists-stub>
+</div>
+`;
