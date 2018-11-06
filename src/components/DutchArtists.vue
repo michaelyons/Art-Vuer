@@ -2,16 +2,16 @@
   <div>
   <div class="hello">
      <div class="art">
-    <article v-for="dutch in dutchArtists" :key="dutch.id">
+    <article v-for="dutch in dutchArtists" :key="dutch.id" class="artist-container">
       <h2>{{dutch.name}}</h2>
       <p>Number of Works: {{dutch.artwork}}</p>
-      <button :id="dutch.id" v-on:click="select($event)">View Artwork</button>
+      <button class="view-btn" :id="dutch.id" v-on:click="select($event)">View Artwork</button>
     </article>
   </div>
      <div class="pictures">
       <div v-for='art in uniqueArt' :key="art.id" v-bind:class="[uniqueArt]" v-show='toggle' class="all-artwork-container">
         <h2>{{art.name}}</h2>
-        <h3>{{art.title}}</h3>
+        <p class="art-title">{{art.title}}</p>
         <p>{{art.technique}}</p>
         <p>{{art.period}}</p>
         <img :src="art.image" alt="no images found" class="image">
