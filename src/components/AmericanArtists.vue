@@ -5,16 +5,23 @@
       <h2>{{artist.name}}</h2>
       <p>{{artist.lifetime}}</p>
       <p>{{artist.artwork}}</p>
-      <button>View Artwork</button>
+      <button :id="artist.id" v-on:click="select($event)">View Artwork</button>
     </article>
   </div>
 </template>
 
 <script>
 import GetAmericanArtistsApi from '@/services/api/AmericanArtists';
+import GetSpecificAmericanArtist from '@/services/api/SpecificArtist';
 export default {
   name: 'AmericanArtists',
-
+  methods: {
+    select: async event => {
+      const targetId = event.target.id;
+      const data = await GetSpecificAmericanArtist.getSpecificArtist(targetId);
+      return data.records;
+    }
+  },
   data() {
     return {
       americanArtists: []
@@ -60,6 +67,12 @@ ul {
 li {
   display: inline-block;
   margin: 0 10px;
+}
+article {
+  border-style: solid;
+  border-color: crimson;
+  border-width: 5px;
+  margin-bottom: 1rem;
 }
 a {
   color: #42b983;
