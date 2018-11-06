@@ -1,17 +1,24 @@
 <template>
-  <div class="hello">
+<div>
     <h1>{{msg}}</h1>
-    <article v-for="artist in americanArtists" :key="artist.id" v-on:click="toggle = true">
+  <div class="hello">
+    <div class="pictures">
+      <div v-for='art in uniqueArt' :key="art.id" v-bind:class="[uniqueArt]" v-show='toggle' class="all-artwork-container">
+        <h2>{{art.name}}</h2>
+        <h3>{{art.title}}</h3>
+        <p>{{art.technique}}</p>
+        <p>{{art.period}}</p>
+        <img :src="art.image" alt="no images found" class="image">
+      </div>
+      </div>
+    <div class="art">
+    <article v-for="artist in americanArtists" :key="artist.id" v-on:click="toggle = true" class="artist-container">
       <h2>{{artist.name}}</h2>
       <p>Number of Works: {{artist.artwork}}</p>
       <button :id="artist.id" v-on:click="select($event), toggle = !toggle">Click to view/remove Artwork</button>
-    </article>
-      <div v-for='art in uniqueArt' :key="art.id" v-bind:class="[uniqueArt]" v-show='toggle'>
-        <h1>{{art.title}}</h1>
-        <p>{{art.technique}}</p>
-        <p>{{art.period}}</p>
-        <img :src="art.image" alt="no images found">
-      </div>
+    </article> 
+    </div>
+  </div>
   </div>
 </template>
 
@@ -35,13 +42,16 @@ export default {
       GetSpecificAmericanArtist.getSpecificArtist(targetId)
         .then(data => {
           const uniqueArtwork = data.records.map(record => {
+            console.log(record);
+            const name = record.people[0].name;
             return {
               artType: record.division,
               technique: record.technique,
               title: record.title,
               period: record.century,
               image: record.primaryimageurl,
-              created: record.dateend
+              created: record.dateend,
+              name: name
             };
           });
           this.uniqueArt = uniqueArtwork;
@@ -79,19 +89,34 @@ export default {
 </script>
 
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+h1 {
+  margin-top: 0.3rem;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.all-artwork-container {
+  float: right;
+  width: 50%;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+.artist-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 2rem;
+  margin-right: 0;
 }
-
-a {
-  color: #42b983;
+.pictures {
+  width: 75%;
+  float: right;
+}
+.art {
+  overflow-y: scroll;
+  height: 32rem;
+  width: 20%;
+  margin-right: 0;
+  border-style: solid;
+  border-width: 3px;
+  border-color: sandybrown;
+  position: sticky;
+}
+.image {
+  width: 300px;
 }
 </style>
