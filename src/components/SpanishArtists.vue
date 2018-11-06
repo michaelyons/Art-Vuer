@@ -1,6 +1,5 @@
 <template>
   <div class="hello">
-    <h1>{{msg}}</h1>
     <article v-for="spanish in spanishArtists" :key="spanish.id">
       <h2>{{spanish.name}}</h2>
       <p>{{spanish.lifetime}}</p>
@@ -50,9 +49,6 @@ export default {
         this.spanishArtists = spanish;
       })
       .catch(error => console.log(error));
-  },
-  props: {
-    msg: String
   }
 };
 </script>

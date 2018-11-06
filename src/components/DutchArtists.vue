@@ -1,8 +1,14 @@
 <template>
   <div>
-  <h1>{{msg}}</h1>
   <div class="hello">
-    <div class="pictures">
+     <div class="art">
+    <article v-for="dutch in dutchArtists" :key="dutch.id">
+      <h2>{{dutch.name}}</h2>
+      <p>Number of Works: {{dutch.artwork}}</p>
+      <button :id="dutch.id" v-on:click="select($event)">View Artwork</button>
+    </article>
+  </div>
+     <div class="pictures">
       <div v-for='art in uniqueArt' :key="art.id" v-bind:class="[uniqueArt]" v-show='toggle' class="all-artwork-container">
         <h2>{{art.name}}</h2>
         <h3>{{art.title}}</h3>
@@ -11,13 +17,6 @@
         <img :src="art.image" alt="no images found" class="image">
       </div>
       </div>
-       <div class="art">
-    <article v-for="dutch in dutchArtists" :key="dutch.id">
-      <h2>{{dutch.name}}</h2>
-      <p>Number of Works: {{dutch.artwork}}</p>
-      <button :id="dutch.id" v-on:click="select($event)">View Artwork</button>
-    </article>
-  </div>
    </div>
   </div>
 </template>
@@ -78,9 +77,6 @@ export default {
         this.dutchArtists = dutch;
       })
       .catch(error => console.log(error));
-  },
-  props: {
-    msg: String
   }
 };
 </script>
@@ -89,31 +85,62 @@ export default {
 h1 {
   margin-top: 0.3rem;
 }
+h2 {
+  margin-bottom: 0;
+  margin-top: 0.4rem;
+}
 .all-artwork-container {
-  float: right;
-  width: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 1rem;
+  margin-left: 0.5rem;
 }
 .artist-container {
   display: flex;
-  flex-wrap: wrap;
-  margin-left: 2rem;
+  flex-direction: column;
+  height: 9rem;
   margin-right: 0;
+  margin-bottom: 1rem;
+  border-bottom: solid slategray 5px;
+}
+p {
+  margin-bottom: 0;
+  margin-top: 0.4rem;
+}
+.art-title {
+  font-weight: bolder;
+  margin-bottom: 0.5rem;
 }
 .pictures {
-  width: 75%;
-  float: right;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.view-btn {
+  width: 6rem;
+  margin: auto;
 }
 .art {
-  overflow-y: scroll;
-  height: 32rem;
+  overflow-x: scroll;
+  height: 17rem;
   width: 20%;
-  margin-right: 0;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   border-style: solid;
-  border-width: 3px;
-  border-color: sandybrown;
+  border-width: 6px;
+  border-color: slategray;
+  background-color: mintcream;
+  border-radius: 20px;
   position: sticky;
 }
 .image {
-  width: 300px;
+  width: 450px;
+  height: 450px;
+  margin-top: 2rem;
+  margin: auto;
+  padding-bottom: 8rem;
 }
 </style>
