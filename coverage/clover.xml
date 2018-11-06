@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1541547052419" clover="3.2.0">
-  <project timestamp="1541547052420" name="All files">
-    <metrics statements="75" coveredstatements="25" conditionals="0" coveredconditionals="0" methods="35" coveredmethods="1" elements="110" coveredelements="26" complexity="0" loc="75" ncloc="75" packages="4" files="14" classes="14">
+<coverage generated="1541547513332" clover="3.2.0">
+  <project timestamp="1541547513333" name="All files">
+    <metrics statements="75" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="35" coveredmethods="1" elements="110" coveredelements="29" complexity="0" loc="75" ncloc="75" packages="4" files="14" classes="14">
       <package name="src">
         <metrics statements="9" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
         <file name="main.js" path="/Users/michael/Desktop/mod4-final/src/main.js">
@@ -20,15 +20,15 @@
         </file>
         <file name="variables.js" path="/Users/michael/Desktop/mod4-final/src/variables.js">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="1" count="3" type="stmt"/>
+          <line num="1" count="6" type="stmt"/>
         </file>
       </package>
       <package name="src.components">
         <metrics statements="54" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="27" coveredmethods="0"/>
         <file name="AmericanArtists.vue" path="/Users/michael/Desktop/mod4-final/src/components/AmericanArtists.vue">
           <metrics statements="18" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="0"/>
-          <line num="27" count="1" type="stmt"/>
-          <line num="28" count="1" type="stmt"/>
+          <line num="27" count="2" type="stmt"/>
+          <line num="28" count="2" type="stmt"/>
           <line num="32" count="1" type="stmt"/>
           <line num="40" count="0" type="stmt"/>
           <line num="41" count="0" type="stmt"/>
@@ -48,8 +48,8 @@
         </file>
         <file name="DutchArtists.vue" path="/Users/michael/Desktop/mod4-final/src/components/DutchArtists.vue">
           <metrics statements="18" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="0"/>
-          <line num="25" count="1" type="stmt"/>
-          <line num="26" count="1" type="stmt"/>
+          <line num="25" count="2" type="stmt"/>
+          <line num="26" count="2" type="stmt"/>
           <line num="30" count="1" type="stmt"/>
           <line num="38" count="0" type="stmt"/>
           <line num="39" count="0" type="stmt"/>
@@ -69,8 +69,8 @@
         </file>
         <file name="SpanishArtists.vue" path="/Users/michael/Desktop/mod4-final/src/components/SpanishArtists.vue">
           <metrics statements="18" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="0"/>
-          <line num="25" count="1" type="stmt"/>
-          <line num="26" count="1" type="stmt"/>
+          <line num="25" count="2" type="stmt"/>
+          <line num="26" count="2" type="stmt"/>
           <line num="30" count="1" type="stmt"/>
           <line num="38" count="0" type="stmt"/>
           <line num="39" count="0" type="stmt"/>
@@ -113,18 +113,18 @@
         </file>
       </package>
       <package name="src.views">
-        <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="AmericanArtists.vue" path="/Users/michael/Desktop/mod4-final/src/views/AmericanArtists.vue">
-          <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="8" count="0" type="stmt"/>
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="8" count="1" type="stmt"/>
         </file>
         <file name="DutchArtists.vue" path="/Users/michael/Desktop/mod4-final/src/views/DutchArtists.vue">
-          <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="8" count="0" type="stmt"/>
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="8" count="1" type="stmt"/>
         </file>
         <file name="SpanishArtists.vue" path="/Users/michael/Desktop/mod4-final/src/views/SpanishArtists.vue">
-          <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="8" count="0" type="stmt"/>
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="8" count="1" type="stmt"/>
         </file>
         <file name="Welcome.vue" path="/Users/michael/Desktop/mod4-final/src/views/Welcome.vue">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
