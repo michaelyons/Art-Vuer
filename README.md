@@ -6,12 +6,9 @@ Art Vuer automatically gathers data from the Harvard Museum API and displays Ame
 
 ### Screenshots
 
-<img src="https://github.com/michaelyons/Informant-Client/blob/master/Screen%20Shot%202018-11-01%20at%207.56.07%20AM.png" alt="heading" width="800" height="400"/>
+<img src="https://github.com/michaelyons/Art-Vuer/blob/master/Screen%20Shot%202018-11-07%20at%2011.06.06%20AM.png" alt="heading" width="800" height="400"/>
 
-<img src="https://github.com/michaelyons/Informant-Client/blob/master/Screen%20Shot%202018-11-01%20at%207.56.42%20AM.png" alt="heading" width="800" height="400"/>
-
-<img src="https://github.com/michaelyons/Informant-Client/blob/master/Screen%20Shot%202018-11-01%20at%207.56.55%20AM.png" alt="heading" width="800" height="400"/>
-
+<img src="https://github.com/michaelyons/Art-Vuer/blob/master/Screen%20Shot%202018-11-07%20at%2011.06.38%20AM.png" alt="heading" width="800" height="400"/>
 
 ### Technologies
 
