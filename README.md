@@ -1,31 +1,24 @@
 # Art-Vuer
 
-## Project setup
-```
-npm install
-```
+## About
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Art Vuer automatically gathers data from the Harvard Museum API and displays American, Dutch and Spanish Artists with their corresponding artworks
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### Screenshots
 
-### Run your tests
-```
-npm run test
-```
+<img src="https://github.com/michaelyons/Informant-Client/blob/master/Screen%20Shot%202018-11-01%20at%207.56.07%20AM.png" alt="heading" width="800" height="400"/>
 
-### Lints and fixes files
-```
-npm run lint
-```
+<img src="https://github.com/michaelyons/Informant-Client/blob/master/Screen%20Shot%202018-11-01%20at%207.56.42%20AM.png" alt="heading" width="800" height="400"/>
 
-### Run your unit tests
-```
-npm run test:unit
-```
+<img src="https://github.com/michaelyons/Informant-Client/blob/master/Screen%20Shot%202018-11-01%20at%207.56.55%20AM.png" alt="heading" width="800" height="400"/>
+
+
+### Technologies
+
+* Vue
+* Vue Router
+* Jest/Enzyme 
+
+### APIs
+
+[Harvard Museum API](https://www.harvardartmuseums.org/collections/api)
