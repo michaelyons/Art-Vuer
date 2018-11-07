@@ -2,7 +2,7 @@
 
 ## About
 
-Art Vuer automatically gathers data from the Harvard Museum API and displays American, Dutch and Spanish Artists with their corresponding artworks
+Art Vuer automatically gathers data from the Harvard Museum API and displays American, Dutch and Spanish Artists with their corresponding artworks. This app was built in 2 days using Vue.
 
 ### Screenshots
 
