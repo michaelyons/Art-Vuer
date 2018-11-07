@@ -1,8 +1,8 @@
 import axios from "axios";
-import { key } from "../../variables";
 
 export default {
   getAmericanArtists() {
+    const key = process.env.VUE_APP_KEY;
     return axios
       .get(`/person?q=culture:American&size=100&apikey=${key}`)
       .then(response => {
