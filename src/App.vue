@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Vue Art</h1>
-    <p>Navigate the links below to view artists from a particular country</p>
+    <p>Navigate the links below to Vue artists from a particular country</p>
     <div id="nav">
       <router-link to="/">Welcome</router-link> |
       <router-link to="/american-artists">American Artists</router-link> |
