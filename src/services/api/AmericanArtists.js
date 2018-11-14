@@ -1,10 +1,11 @@
 import axios from "axios";
-import { key } from "../../variables";
 
 export default {
   getAmericanArtists() {
     return axios
-      .get(`/person?q=culture:American&size=100&apikey=${key}`)
+      .get(
+        `/person?q=culture:American&size=100&apikey=${process.env.VUE_APP_KEY}`
+      )
       .then(response => {
         return response.data.records;
       });

@@ -1,11 +1,12 @@
 import axios from "axios";
-import { key } from "../../variables";
 
 export default {
   getSpecificArtist(targetId) {
     return axios
       .get(
-        `https://api.harvardartmuseums.org/object?person=${targetId}&apikey=${key}`
+        `https://api.harvardartmuseums.org/object?person=${targetId}&apikey=${
+          process.env.VUE_APP_KEY
+        }`
       )
       .then(response => {
         return response.data;
